@@ -46,13 +46,13 @@ class ConcertDAO extends DAO
      * @return array The list of drugs.
      */
     public function findAllByGenre($genreId) {
-        $sql = "select * from t_concert where gen_id=? order by trade_name";
+        $sql = "select * from t_concert where gen_id=? order by conc_artist";
         $result = $this->getDb()->fetchAll($sql, array($genreId));
         
         // Convert query result to an array of domain objects
         $concerts = array();
         foreach ($result as $row) {
-            $concertId = $row['drug_id'];
+            $concertId = $row['conc_id'];
             $concerts[$concertId] = $this->buildDomainObject($row);
         }
         return $concerts;

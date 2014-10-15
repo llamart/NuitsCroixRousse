@@ -27,10 +27,10 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Lien de retour à la page d'accueil -->
-                    <a class="navbar-brand" href="">Les Nuits de la Croix Rousse</a>
+                    <a class="navbar-brand" href="/">Les Nuits de la Croix Rousse</a>
                 </div>
                 <!-- Partie de la barre masquée en fonction de la zone d'affichage -->
-                <div class="collapse navbar-collapse">
+                <div class="collapse navbar-collapse"id="navbar-collapse-target">
                     <ul class="nav navbar-nav">
                         <li class="dropdown {% if concertMenu is defined %}active{% endif %}">
                             <a href="" class="dropdown-toggle" data-toggle="dropdown">Concerts <b class="caret"></b></a>
@@ -60,9 +60,13 @@
         </div>
     </div>
 
+       {% autoescape %}
+        <div id="content">{% block content %}{% endblock %}</div>
+        {% endautoescape %}
+    </div>
     <!-- jQuery -->
-    <script src="lib/jquery/jquery-1.11.1.min.js"></script>
-    <!-- Plugin JavaScript Boostrap -->
-    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="{{ app.request.basepath }}/lib/jquery/jquery-1.11.1.min.js"></script>
+    <!-- JavaScript Boostrap plugin -->
+    <script src="{{ app.request.basepath }}/lib/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

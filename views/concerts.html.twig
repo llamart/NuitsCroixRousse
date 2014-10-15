@@ -5,7 +5,7 @@
 
 {% block content %}
 <h2 class="text-center">{{ block('title') }}</h2>
-{% if drugs %}
+{% if concerts %}
     <div class="table-responsive">
         <table class="table table-hover table-condensed">
             <thead>
@@ -21,7 +21,7 @@
                     <td><a href="/concerts/{{ concert.id }}">{{ concert.artist }}</a></td>
                     <td>{{ concert.date }}</td>
                     <td>{{ concert.place }}</td>
-                    <td>{{ concert.gen.id }}</td>
+                    <td>{{ concert.genre.id }}</td>
                 </tr>
             {% endfor %}
         </table>
