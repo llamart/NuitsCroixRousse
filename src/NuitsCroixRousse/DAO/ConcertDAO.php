@@ -6,6 +6,11 @@ use NuitsCroixRousse\Domain\Concert;
 
 class ConcertDAO extends DAO
 {
+       protected $genreDAO;
+
+    public function setgenreDAO($genreDAO) {
+        $this->genreDAO = $genreDAO;
+    }
     /**
      * @var \GSB\DAO\FamilyDAO
      */
@@ -79,7 +84,7 @@ class ConcertDAO extends DAO
      */
     protected function buildDomainObject($row) {
         $genreId = $row['gen_id'];
-        $genre = $this->GenreDAO->find($genreId);
+        $genre = $this->genreDAO->find($genreId);
 
       
         
@@ -87,7 +92,7 @@ class ConcertDAO extends DAO
         $concert->setArtist($row['conc_artist']);
         $concert->setDate($row['conc_date']);
         $concert->setDescription($row['conc_description']);
-        $concert->setGenre($row['gen_id']);
+        $concert->setGenre($genre);
         $concert->setId($row['conc_id']);
         $concert->setPlace($row['conc_place']);
         $concert->setPrice($row['conc_price']);

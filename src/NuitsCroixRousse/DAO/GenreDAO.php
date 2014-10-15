@@ -49,7 +49,7 @@ class GenreDAO extends DAO
      * @return \GSB\Domain\Family
      */
     protected function buildDomainObject($row) {
-        $genre = Genre();
+        $genre = new  Genre();
         $genre->setId($row['gen_id']);
         $genre->setName($row['gen_name']);
         return $genre;

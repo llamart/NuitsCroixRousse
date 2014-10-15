@@ -25,6 +25,6 @@ $app->get('/concerts/search/', function() use ($app) {
 // Results page for concerts
 $app->post('/concerts/results/', function(Request $request) use ($app) {
     $genreId = $request->request->get('genre');
-    $concerts = $app['dao.concert']->findAllByFamily($genreId);
+    $concerts = $app['dao.concert']->findAllByGenre($genreId);
     return $app['twig']->render('concerts_results.html.twig', array('concerts' => $concerts));
 });

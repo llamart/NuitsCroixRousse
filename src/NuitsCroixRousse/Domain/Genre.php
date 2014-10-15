@@ -1,6 +1,6 @@
 <?php
 
-namespace Nuits\Domain;
+namespace NuitsCroixRousse\Domain;
 
 class Genre
 {
